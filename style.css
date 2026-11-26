@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.search {
+    padding: 15px;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 140px);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    background: white;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.sidebar li:hover {
+    background: #eeeeee;
+}
+
+.sidebar li.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* EDITOR */
+
+.editor {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#title {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#content {
+    width: 100%;
+    height: 180px;
+    padding: 12px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+.calendar-section {
+    position: relative;
+}
+
+/* CALENDAR HEADER */
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.calendar-header div {
+    text-align: center;
+    padding: 12px;
+}
+
+/* CALENDAR GRID */
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #d7d7d7;
+}
+
+/* DAY CELL */
+
+.day-cell {
+    background: white;
+
+    min-height: 140px;
+
+    padding: 8px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    transition: background 0.2s;
+}
+
+.day-cell:hover {
+    background: #f4f8ff;
+}
+
+/* DATE */
+
+.day-date {
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 13px;
+
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* NOTE PREVIEW */
+
+.day-preview {
+    font-size: 12px;
+    line-height: 1.4;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    overflow: hidden;
+}
+
+/* Highlight cells containing notes */
+
+.day-cell.has-content {
+    background: #fff8cc;
+}
+
+/* FLOATING BUTTON */
+
+#add-week {
+    position: fixed;
+
+    right: 30px;
+    bottom: 30px;
+
+    width: 65px;
+    height: 65px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ff1c1c;
+
+    color: white;
+
+    font-size: 36px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.25);
+
+    z-index: 999;
+}
+
+#add-week:hover {
+    background: #d90000;
+}
+
+/* DELETE BUTTON */
+
+.bottom-buttons {
+    margin-top: 20px;
+}
+
+#delete {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    width: 700px;
+    max-width: 95%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+#modal-date {
+    margin-top: 0;
+    color: #2563eb;
+}
+
+#day-note {
+    width: 100%;
+    height: 300px;
+
+    resize: vertical;
+
+    padding: 10px;
+
+    font-size: 15px;
+}
+
+.autosave-label {
+    color: #777;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* MOBILE */
+
+@media (max-width: 1100px) {
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    #calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .calendar-header {
+        display: none;
+    }
+}

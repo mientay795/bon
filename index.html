@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>📝 My Notes Planner</h1>
+    <p>Version 7 - Calendar Note Board</p>
+</header>
+
+<div class="search">
+    <input
+        type="text"
+        id="search"
+        placeholder="Search notes..."
+    >
+</div>
+
+<div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+
+        <button id="new-note">
+            + New Note
+        </button>
+
+        <button id="export-notes">
+            Export Notes
+        </button>
+
+        <button id="import-notes">
+            Import Notes
+        </button>
+
+        <input
+            type="file"
+            id="import-file"
+            accept=".json"
+            style="display:none"
+        >
+
+        <ul id="notes-list"></ul>
+
+    </div>
+
+    <!-- MAIN EDITOR -->
+    <div class="editor">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Note Title"
+        >
+
+        <textarea
+            id="content"
+            placeholder="Write your main note here..."
+        ></textarea>
+
+        <div class="calendar-section">
+
+            <div class="calendar-title-row">
+                <h2>Calendar Board</h2>
+            </div>
+
+            <!-- STICKY WEEK HEADER -->
+
+            <div class="calendar-header">
+
+                <div>Sunday</div>
+                <div>Monday</div>
+                <div>Tuesday</div>
+                <div>Wednesday</div>
+                <div>Thursday</div>
+                <div>Friday</div>
+                <div>Saturday</div>
+
+            </div>
+
+            <!-- ALL DATE CELLS -->
+
+            <div id="calendar-grid">
+
+            </div>
+
+            <!-- ADD WEEK BUTTON -->
+
+            <button id="add-week" title="Add Week">
+                +
+            </button>
+
+        </div>
+
+        <div class="bottom-buttons">
+
+            <button id="delete">
+                Delete Note
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- DAY NOTE POPUP -->
+
+<div id="day-modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <button id="close-modal" class="close-btn">
+            ×
+        </button>
+
+        <h2 id="modal-date">
+            Date
+        </h2>
+
+        <textarea
+            id="day-note"
+            placeholder="Write notes for this day..."
+        ></textarea>
+
+        <p class="autosave-label">
+            Auto-saving...
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
